@@ -3,6 +3,7 @@ AxVisor通过模块化的方式实现了清晰，可扩展，可重用的Hypervi
 
 `AxVisor`仓库是AxVisor项目的顶层Crate，它作为程序的主入口点将所有组件整合在一起，实现了AxVisor虚拟机监控器(Virtual Machine Manager， VMM)的核心功能。`AxVisor` Crate 提供了一个全局视角的虚拟化资源管理，并负责编排虚拟机的整个生命周期。功能涵盖系统初始化，虚拟机启动，处理运行时事件等等。AxVisor通过统一的框架为多种架构(x86, aarch64和RISC-V)提供支持。
 
+![AxVisor Architecture](img/Axvisor.png)
 
 ## 设计目标
 在深入到具体的设计细节之前，我们将在本节中明确AxVisor的设计目标和功能需求。
@@ -22,11 +23,11 @@ AxVisor通过模块化的方式实现了清晰，可扩展，可重用的Hypervi
 
 一方面。 它依赖ArceOS unikernel基座实现了Hypervisor资源管理的基本功能，如内存管理，设备管理，任务调度。另一方面，它依赖`axvm`模块实现了对虚拟机实例的管理，如虚拟机实例的创建，销毁，启动，终止。`AxVisor` 作为核心管理者对硬件资源进行维护的同时也维护各个虚拟机的配置，状态等信息。
 
-### 基本抽象模型: CPU - vCPU - VM
+### 基本抽象模型
 
 要理解Hypervisor的基本架构，一个关键是理解Hypervisor和操作系统抽象模型的区别。
 
-（需要一个图片展示抽象模型的区别）
+![Hypervisor vs. Operating System](img/hypervisorvsos.png)
 
 对于操作系统来说，它管理所有的硬件资源并且对所有的硬件资源进行了一层抽象提供给应用程序使用：通过虚拟内存为应用程序提供了内存的抽象，通过线程为应用程序提供了CPU核心计算资源的抽象。
 
