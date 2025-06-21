@@ -37,6 +37,10 @@ AxVM也是AxVisor的核心组件，负责管理每个虚拟机实例。在这篇
 
 同时，重构的文档也补充了很多缺失的细节。总的来说，笔者在四阶段完成的文档在易读性和完整性上和原有的文档相比均实现了较大的提升。
 
+两个文档均已提交了Pull Request，目前在等待review: 
+- axvisor: https://github.com/arceos-hypervisor/doc/pull/72
+- axvm: https://github.com/arceos-hypervisor/doc/pull/75
+
 ## 未来计划
 由于在训练营期间时间有限，未能完成全部架构文档的重构计划。同时训练营的很多同侪也为AxVisor增加了很多新的特性，比如中断虚拟化等等。因此笔者计划在训练营结束后继续投入到文档开发中去。最终呈现出一个完整的适用于初学者的AxVisor架构手册。
 
